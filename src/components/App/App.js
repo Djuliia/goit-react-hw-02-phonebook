@@ -26,13 +26,10 @@ export class App extends Component {
       alert(`Contact with name "${name}" already exists.`);
       return;
     }
-    const newContact = { id: nanoid(), name, number };
-
     this.setState(prevState => ({
-      contacts: [...prevState.contacts, newContact],
-    }), () => {
-      console.log('All contacts:', this.state.contacts);
-    });
+      contacts: [...prevState.contacts, { id: nanoid(), name, number }],
+    }), 
+    );
   };
   deleteContact = id => {
     this.setState(prevState => ({
